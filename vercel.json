@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/liltkeys",
+      "destination": "/liltkeys"
+    }
+  ]
+}
