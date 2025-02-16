@@ -12,6 +12,16 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
+// Log after firebaseConfig is declared
+console.log("Firebase Config:", firebaseConfig);
+console.log("API Key:", firebaseConfig.apiKey);
+console.log("Auth Domain:", firebaseConfig.authDomain);
+console.log("Project ID:", firebaseConfig.projectId);
+console.log("Storage Bucket:", process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET);
+console.log("Messaging Sender ID:", firebaseConfig.messagingSenderId);
+console.log("App ID:", firebaseConfig.appId);
+console.log("Measurement ID:", firebaseConfig.measurementId);
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 

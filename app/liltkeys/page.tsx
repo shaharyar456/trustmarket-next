@@ -23,6 +23,13 @@ const LiltkeysPage: React.FC = () => {
       try {
         const imagesRef = ref(storage, "liltkeys/");
         const imageList = await listAll(imagesRef);
+
+        if (imageList.items.length === 0) {
+          console.error("No images found in the liltkeys/ folder.");
+          return;
+        }
+
+        // Fetch URLs for each item in imageList
         const urls = await Promise.all(
           imageList.items.map(async (item) => {
             const url = await getDownloadURL(item);
@@ -30,8 +37,12 @@ const LiltkeysPage: React.FC = () => {
           })
         );
 
+        console.log("Fetched Image URLs:", urls); // Debugging output
+
+        // Set image URLs in state
         setImageUrls(urls.map((item) => item.url));
 
+        // Find 10.jpg and set it as the profile image if available
         const tenJpg = urls.find((item) => item.name === "10.jpg");
         if (tenJpg) {
           setProfileImage(tenJpg.url);
@@ -39,7 +50,7 @@ const LiltkeysPage: React.FC = () => {
           setProfileImage(urls[0]?.url);
         }
       } catch (error) {
-        console.error("Error fetching images from Firebase: ", error);
+        console.error("Error fetching images from Firebase:", error);
       }
     };
 
