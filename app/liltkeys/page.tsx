@@ -37,8 +37,7 @@ const LiltkeysPage: React.FC = () => {
           })
         );
 
-        console.log("Fetched Image URLs:", urls); // Debugging output
-
+        console.log("Fetched Image URLs:", urls);
         // Set image URLs in state
         setImageUrls(urls.map((item) => item.url));
 
@@ -59,7 +58,6 @@ const LiltkeysPage: React.FC = () => {
 
   return (
     <div className="flex h-full bg-gray-100">
-      {/* Mobile Header */}
       <div className="fixed top-0 left-0 w-full bg-black text-white flex items-center justify-between px-4 py-3 md:px-4 md:py-3 md:hidden z-50">
         <h1 className="text-base font-bold md:text-lg">TrustMarket</h1>
         <button
@@ -169,8 +167,8 @@ const LiltkeysPage: React.FC = () => {
               <strong>Available for Pickup & Shipping (Toronto Based)</strong>
             </p>
             <p className="text-sm md:text-base text-gray-700">
-              💡 <strong>Personalized Designs</strong> – Have a vision? Let’s
-              make it happen!
+              💡 <strong>Personalized Designs</strong> – Have a vision?
+              Let&apos;s make it happen!
             </p>
             <p className="text-sm md:text-base text-gray-700">
               🖌 <strong>Canvases, Murals, Fabric Work & Leather Orders</strong>
@@ -179,12 +177,16 @@ const LiltkeysPage: React.FC = () => {
               🎁 <strong>Perfect for Gifts, Accessories & Collectibles</strong>
             </p>
             <p className="text-sm md:text-base text-gray-700">
-              🔹 <strong>Custom Requests Welcome!</strong> Whether it's your
-              favorite anime character, a beloved pet, or a unique concept, I’ll
-              bring it to life with detailed, hand-painted designs.
+              🔹 <strong>Custom Requests Welcome!</strong> Whether it&apos;s
+              your favorite anime character, a beloved pet, or a unique concept,
+              I’ll bring it to life with detailed, hand-painted designs.
             </p>
             <p className="text-sm md:text-base text-gray-700">
-              ✨ <em>"Ask me to attempt anything, I'll try my best!"</em> ✨
+              ✨{" "}
+              <em>
+                &quot;Ask me to attempt anything, I&apos;ll try my best!&quot;
+              </em>{" "}
+              ✨
             </p>
           </div>
         </section>
@@ -197,7 +199,7 @@ const LiltkeysPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {imageUrls.length > 0 ? (
               imageUrls
-                .filter((url) => !url.includes("10.jpg")) // Exclude 10.jpg
+                .filter((url) => !url.includes("10.jpg"))
                 .map((url, index) => (
                   <div
                     key={index}
